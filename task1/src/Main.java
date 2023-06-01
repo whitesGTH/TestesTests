@@ -2,6 +2,9 @@ import static java.lang.System.*;
 
 public class Main {
     public static void main(String[] args) {
+        if(args.length<2)
+            exit(1);
+
         int arrayLenth,stepLenght;
         arrayLenth = Integer.parseInt(args[0]);
         stepLenght = Integer.parseInt(args[1]);
