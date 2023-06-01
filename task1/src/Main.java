@@ -7,7 +7,8 @@ public class Main {
             exit(1);
         }
 
-        int arrayLength,stepLenght;
+        String delimiterString = "";
+        int arrayLength=0,stepLenght=0;
         try {
             arrayLength = Integer.parseInt(args[0]);
             stepLenght = Integer.parseInt(args[1]);
@@ -21,24 +22,24 @@ public class Main {
         {
             throw e;
         }
-        finally {
-            arrayLength = 0; stepLenght = 0;
-            out.println("Что-то пошло не так");
-            exit(1);
-        }
+
+        //про это нет в задаче
+        //if (arrayLength>9)
+        //    delimiterString = " ";
 
         int currentPos = 1;
-        out.print(currentPos);
+        out.print(currentPos + delimiterString);
         currentPos += stepLenght-1;
+        currentPos = currentPos % arrayLength;
+
         while (currentPos != 1) {
             if(currentPos == 0)
-                out.print(arrayLength);
+                out.print(arrayLength + delimiterString);
             else
-                out.print(currentPos);
+                out.print(currentPos + delimiterString);
 
             currentPos += stepLenght-1;
-            if (currentPos >= arrayLength)
-                currentPos -= arrayLength;
+            currentPos = currentPos % arrayLength;
         }
     }
 }
